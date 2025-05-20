@@ -1,10 +1,17 @@
 [
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Shraddhesh’s Resume",
     "section": "",
-    "text": "Cluster Analysis for Segmentation\n\n\n\n\n\n\nShraddhesh Bhalerao\n\n\nMay 20, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nFast TURF with RCPP\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShapely Values for Key Drivers Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Download PDF file."
+  },
+  {
+    "objectID": "projects/03_drivers/index.html",
+    "href": "projects/03_drivers/index.html",
+    "title": "Shapely Values for Key Drivers Analysis",
+    "section": "",
+    "text": "Hi! Thank you Dan for the website:)"
   },
   {
     "objectID": "projects/01_segmentation/index.html",
@@ -21,17 +28,17 @@
     "text": "here are some words\n\none\ntwo\nthree\n\n\nx &lt;- 2 + 2\nprint(x)\n\n[1] 4"
   },
   {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Shraddhesh’s Resume",
-    "section": "",
-    "text": "Download PDF file."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Shraddhesh Bhalerao",
     "section": "",
     "text": "Hi! My name is Shraddhesh :)"
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Cluster Analysis for Segmentation\n\n\n\n\n\n\nShraddhesh Bhalerao\n\n\nMay 20, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nFast TURF with RCPP\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShapely Values for Key Drivers Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]
