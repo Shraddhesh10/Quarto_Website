@@ -1,0 +1,21 @@
+---
+title: "Cluster Analysis for Segmentation"
+author: "Shraddhesh Bhalerao"
+date: today
+---
+
+# I'm a Section Heading
+
+## I'm a Subsection
+
+here are some words
+
+- one
+- two
+- three
+
+```{r}
+x <- 2 + 2
+print(x)
+```
+

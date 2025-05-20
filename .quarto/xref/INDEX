@@ -1,0 +1,20 @@
+{
+  "index.qmd": {
+    "index.html": "27e01920"
+  },
+  "projects.qmd": {
+    "projects.html": "0ec32cd3"
+  },
+  "resume.qmd": {
+    "resume.html": "be37ae01"
+  },
+  "projects/01_segmentation/index.qmd": {
+    "index.html": "2a621909"
+  },
+  "projects/02_turf/index.qmd": {
+    "index.html": "db3bee40"
+  },
+  "projects/03_drivers/index.qmd": {
+    "index.html": "c0f8c019"
+  }
+}

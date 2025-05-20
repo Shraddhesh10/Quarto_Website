@@ -1,0 +1,13 @@
+---
+title: "Shraddhesh Bhalerao"
+image: "https://media.licdn.com/dms/image/v2/D5603AQGieBlPpBsnTg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724186466062?e=1753315200&v=beta&t=pTvpO1xDR433rRp1xfA12GEf_qCXgVokyKpGVkDhRFA"
+about:
+  template: jolla
+  links: 
+    - icon: envelope
+      href: mailto:shraddheshbhalerao10@gmail.com
+    - icon: linkedin
+      href: https://www.linkedin.com/in/shraddhesh-bhalerao/
+---
+
+Hi!  My name is Shraddhesh :) 

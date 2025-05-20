@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Cluster Analysis for Segmentation\n\n\n\n\n\n\nShraddhesh Bhalerao\n\n\nMay 20, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nFast TURF with RCPP\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShapely Values for Key Drivers Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/01_segmentation/index.html",
+    "href": "projects/01_segmentation/index.html",
+    "title": "Cluster Analysis for Segmentation",
+    "section": "",
+    "text": "here are some words\n\none\ntwo\nthree\n\n\nx &lt;- 2 + 2\nprint(x)\n\n[1] 4"
+  },
+  {
+    "objectID": "projects/01_segmentation/index.html#im-a-subsection",
+    "href": "projects/01_segmentation/index.html#im-a-subsection",
+    "title": "Cluster Analysis for Segmentation",
+    "section": "",
+    "text": "here are some words\n\none\ntwo\nthree\n\n\nx &lt;- 2 + 2\nprint(x)\n\n[1] 4"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Shraddhesh’s Resume",
+    "section": "",
+    "text": "Download PDF file."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Shraddhesh Bhalerao",
+    "section": "",
+    "text": "Hi! My name is Shraddhesh :)"
+  }
+]
