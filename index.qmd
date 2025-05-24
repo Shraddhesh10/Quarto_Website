@@ -1,13 +1,51 @@
 ---
 title: "Shraddhesh Bhalerao"
-image: "https://media.licdn.com/dms/image/v2/D5603AQGieBlPpBsnTg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1724186466062?e=1753315200&v=beta&t=pTvpO1xDR433rRp1xfA12GEf_qCXgVokyKpGVkDhRFA"
 about:
-  template: jolla
-  links: 
+  id: main-content
+  template: trestles
+  image: "files/profile_pic.jpg"
+  image-shape: round
+  links:
     - icon: envelope
       href: mailto:shraddheshbhalerao10@gmail.com
     - icon: linkedin
       href: https://www.linkedin.com/in/shraddhesh-bhalerao/
+    - icon: github
+      href: https://github.com/Shraddhesh10
+    
+format:
+  html:
+    page-layout: full
 ---
 
-Hi!  My name is Shraddhesh :) 
+:::{#main-content}
+
+## Current
+
+ - Data Analytics Intern - Analytics | GBK Collective
+
+-----
+
+
+## Education
+
+ - B.Tech Computer Science & Engineering [ |Symbiosis Institute of Technology,June 2021-Present]{.gray}
+ - Junior College [ |Atomic Energy Central School No.1,June 2021]{.gray}
+
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
