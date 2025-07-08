@@ -1,7 +1,6 @@
 ---
 title: "Cluster Analysis for Segmentation"
 author: "Shraddhesh Bhalerao"
-date: today
 ---
 
 # I'm a Section Heading
@@ -10,12 +9,11 @@ date: today
 
 here are some words
 
-- one
-- two
-- three
+-   one
+-   two
+-   three
 
 ```{r}
 x <- 2 + 2
 print(x)
 ```
-

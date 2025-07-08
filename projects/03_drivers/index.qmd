@@ -2,5 +2,9 @@
 title: "Shapely Values for Key Drivers Analysis"
 ---
 
-Hi! Thank you Dan for the website:)
+
+
+```{r}
+hist(rnorm(100))
+```
 

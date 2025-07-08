@@ -4,5 +4,3 @@ listing:
   contents: projects
   type: grid
 ---
-
-

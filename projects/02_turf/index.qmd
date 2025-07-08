@@ -1,3 +1,42 @@
 ---
 title: "Fast TURF with RCPP"
 ---
+
+# Intro to TURF
+
+TURF is a method to ...
+
+## What GBK was doing before I helped
+
+Tehy were using slow R code like losers!
+
+# What I did
+
+I made fast C++ code.  Let me show you how much faster it is! 
+
+```{r}
+#| warning: false
+
+library(Rcpp)
+library(microbenchmark)
+# Compilation
+sourceCpp("turf_rcpp.cpp")
+
+# Load data
+data <- as.matrix(read.csv("out_mat1_forSB.csv"))
+
+# Run turf
+result <- turf(data, j=5, keep = 10)
+
+
+print(result)
+system.time(result_og<- turf(data))
+microbenchmark(
+  turf(as.matrix(data), j=5),
+  times=10
+  )
+
+turf(as.matrix(data), j=5)
+
+```
+

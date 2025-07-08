@@ -18,34 +18,15 @@ format:
     page-layout: full
 ---
 
-:::{#main-content}
-
+::: {#main-content}
 ## Current
 
- - Data Analytics Intern - Analytics | GBK Collective
+-   Data Analytics Intern - Analytics \| GBK Collective
 
------
-
+------------------------------------------------------------------------
 
 ## Education
 
- - B.Tech Computer Science & Engineering [ |Symbiosis Institute of Technology,June 2021-Present]{.gray}
- - Junior College [ |Atomic Energy Central School No.1,June 2021]{.gray}
-
+-   B.Tech Computer Science & Engineering [\|Symbiosis Institute of Technology, Pune - June 2021-June 2025]{.gray}
+-   Junior College [\| Atomic Energy Central School No.1, Tarapur (April 2019 - June 2021)]{.gray}
 :::
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
