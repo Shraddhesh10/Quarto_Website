@@ -16,5 +16,8 @@
   },
   "projects/03_drivers/index.qmd": {
     "index.html": "c0f8c019"
+  },
+  "projects/01_segmentation/Segmented_Data_PCA_KMeans_Final.ipynb": {
+    "Segmented_Data_PCA_KMeans_Final.html": "a3ebb41b"
   }
 }

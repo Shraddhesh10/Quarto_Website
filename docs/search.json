@@ -14,18 +14,32 @@
     "text": "hist(rnorm(100))"
   },
   {
-    "objectID": "projects/01_segmentation/index.html",
-    "href": "projects/01_segmentation/index.html",
-    "title": "Cluster Analysis for Segmentation",
+    "objectID": "projects/01_segmentation/index.html#project-overview",
+    "href": "projects/01_segmentation/index.html#project-overview",
+    "title": "Customer Segmentation with PCA & KMeans",
     "section": "",
-    "text": "here are some words\n\none\ntwo\nthree\n\n\nx &lt;- 2 + 2\nprint(x)\n\n[1] 4"
+    "text": "Applied PCA and KMeans clustering techniques to segment customers, uncovering distinct buying patterns to support targeted marketing strategies."
   },
   {
-    "objectID": "projects/01_segmentation/index.html#im-a-subsection",
-    "href": "projects/01_segmentation/index.html#im-a-subsection",
-    "title": "Cluster Analysis for Segmentation",
-    "section": "",
-    "text": "here are some words\n\none\ntwo\nthree\n\n\nx &lt;- 2 + 2\nprint(x)\n\n[1] 4"
+    "objectID": "projects/01_segmentation/index.html#my-contributions",
+    "href": "projects/01_segmentation/index.html#my-contributions",
+    "title": "Customer Segmentation with PCA & KMeans",
+    "section": "My Contributions",
+    "text": "My Contributions\n\nPerformed data cleaning and exploratory analysis.\nExecuted PCA for dimensionality reduction.\nBuilt KMeans clustering models.\nVisualized clustering outcomes and interpreted customer segments."
+  },
+  {
+    "objectID": "projects/01_segmentation/index.html#technologies-used",
+    "href": "projects/01_segmentation/index.html#technologies-used",
+    "title": "Customer Segmentation with PCA & KMeans",
+    "section": "Technologies Used",
+    "text": "Technologies Used\n\nPython (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)\nJupyter Notebook"
+  },
+  {
+    "objectID": "projects/01_segmentation/index.html#code",
+    "href": "projects/01_segmentation/index.html#code",
+    "title": "Customer Segmentation with PCA & KMeans",
+    "section": "Code",
+    "text": "Code"
   },
   {
     "objectID": "index.html",
@@ -67,6 +81,13 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "Cluster Analysis for Segmentation\n\n\n\n\n\n\nShraddhesh Bhalerao\n\n\nJul 8, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nFast TURF with RCPP\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShapely Values for Key Drivers Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Customer Segmentation with PCA & KMeans\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFast TURF with RCPP\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nShapely Values for Key Drivers Analysis\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/01_segmentation/index.html",
+    "href": "projects/01_segmentation/index.html",
+    "title": "Customer Segmentation with PCA & KMeans",
+    "section": "",
+    "text": "Applied PCA and KMeans clustering techniques to segment customers, uncovering distinct buying patterns to support targeted marketing strategies."
   }
 ]

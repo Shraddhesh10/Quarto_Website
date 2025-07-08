@@ -1,19 +1,29 @@
 ---
-title: "Cluster Analysis for Segmentation"
-author: "Shraddhesh Bhalerao"
+title: "Customer Segmentation with PCA & KMeans"
+format:
+  html:
+    toc: true
+execute:
+  echo: true
+  warning: false
+  message: false
+engine: notebook
 ---
 
-# I'm a Section Heading
+## Project Overview
 
-## I'm a Subsection
+Applied PCA and KMeans clustering techniques to segment customers, uncovering distinct buying patterns to support targeted marketing strategies.
 
-here are some words
+## My Contributions
 
--   one
--   two
--   three
+-   Performed data cleaning and exploratory analysis.
+-   Executed PCA for dimensionality reduction.
+-   Built KMeans clustering models.
+-   Visualized clustering outcomes and interpreted customer segments.
 
-```{r}
-x <- 2 + 2
-print(x)
-```
+## Technologies Used
+
+-   Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)
+-   Jupyter Notebook
+
+## Code

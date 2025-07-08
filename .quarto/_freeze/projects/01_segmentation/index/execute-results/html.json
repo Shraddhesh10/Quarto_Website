@@ -1,7 +1,7 @@
 {
-  "hash": "a115833d1066718f826e1d374fc714c5",
+  "hash": "d122377c303e217fcee90450ece84b73",
   "result": {
-    "markdown": "---\ntitle: \"Cluster Analysis for Segmentation\"\nauthor: \"Shraddhesh Bhalerao\"\ndate: today\n---\n\n\n# I'm a Section Heading\n\n## I'm a Subsection\n\nhere are some words\n\n- one\n- two\n- three\n\n\n::: {.cell}\n\n```{.r .cell-code}\nx <- 2 + 2\nprint(x)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 4\n```\n:::\n:::\n",
+    "markdown": "---\ntitle: \"Cluster Analysis for Segmentation\"\nauthor: \"Shraddhesh Bhalerao\"\n---\n\n\n# I'm a Section Heading\n\n\n\n-   one\n-   two\n-   three\n\n\n::: {.cell}\n\n```{.r .cell-code}\nx <- 2 + 2\nprint(x)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 4\n```\n:::\n:::\n",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"
