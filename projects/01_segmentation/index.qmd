@@ -1,5 +1,5 @@
 ---
-title: "Customer Segmentation with PCA & KMeans"
+title: "<u>Customer Segmentation with PCA & KMeans</u>"
 format:
   html:
     toc: true
@@ -12,8 +12,7 @@ engine: notebook
 
 ## Project Overview
 
-Applied PCA and KMeans clustering techniques to segment customers, uncovering distinct buying patterns to support targeted marketing strategies.
-
+Performed customer segmentation by applying PCA for dimensionality reduction followed by KMeans clustering. Explored cluster counts from 2 to 6 and evaluated the results using both the Elbow Method and silhouette scores to ensure well-separated groupings.The analysis uncovered distinct clusters characterized by differences in shopping habits, demographics, and financial behavior, providing actionable insights for targeted marketing strategies.
 ## My Contributions
 
 -   Performed data cleaning and exploratory analysis.

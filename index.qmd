@@ -21,7 +21,7 @@ format:
 ::: {#main-content}
 ## Current
 
--   Data Analytics Intern - Analytics \| GBK Collective
+-   Data Science Intern \| GBK Collective
 
 ------------------------------------------------------------------------
 

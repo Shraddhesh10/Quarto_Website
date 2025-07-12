@@ -1,0 +1,7 @@
+---
+title: Certifications
+---
+
+## IBM Data Science Professional Certificate
+
+## Generative AI Engineering with LLMs Specialization

@@ -19,5 +19,26 @@
   },
   "projects/01_segmentation/Segmented_Data_PCA_KMeans_Final.ipynb": {
     "Segmented_Data_PCA_KMeans_Final.html": "a3ebb41b"
+  },
+  "projects/04_AI Integration/index.qmd": {
+    "index.html": "f88b8998"
+  },
+  "Certificates/certifications.qmd": {
+    "certifications.html": "b8491d99"
+  },
+  "certifications.qmd": {
+    "certifications.html": "e9167a3f"
+  },
+  "docs/certifications.qmd": {
+    "certifications.html": "a776acf3"
+  },
+  "projects/03_Sleep_disorder_prediction/index.qmd": {
+    "index.html": "b92201ef"
+  },
+  "Certifications/index.qmd": {
+    "index.html": "d9e5ae83"
+  },
+  "certifications/certificates.qmd": {
+    "certificates.html": "22ccdc0d"
   }
 }

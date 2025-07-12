@@ -4,6 +4,8 @@ project:
   
 website:
   title: "Shraddhesh Bhalerao"
+  
+
   navbar:
     left:
       - href: index.qmd
@@ -12,6 +14,11 @@ website:
         text: Resume
       - href: projects.qmd
         text: Projects
+      - href: certifications/certificates.qmd
+        text: Certifications
+        
+google-site-verification: NsbAdXXXyyhbPUML-RAXRhkbgt8stoPOTp47ISXGzQk
+
 
 format:
   html:
@@ -19,6 +26,7 @@ format:
     css: custom.scss
     toc: true
     code-fold: false
+    include-in-header: meta.html
 
 editor: visual
 

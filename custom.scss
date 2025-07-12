@@ -5,3 +5,13 @@ $gray-text:#bdbdbd;
 .gray{
   color: $gray-text;
 }
+.page-project h1 {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  margin-bottom: 1.5rem;
+}
+.project-desc {
+  margin-top: 1.2rem;
+  font-size: 1.07rem;
+  line-height: 1.6;
+}

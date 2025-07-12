@@ -1,0 +1,6 @@
+---
+title: "Sleep Disorder Prediction"
+class: page-project
+---
+
+The objective of this data science project is to analyze lifestyle and medical variables—such as age, BMI, physical activity, sleep duration, and blood pressure—to predict the presence and type of sleep disorder (e.g., Insomnia, Sleep Apnea). Early identification of individuals at risk can enable targeted interventions to improve sleep quality and health outcomes.

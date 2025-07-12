@@ -2,9 +2,10 @@
   {
     "listing": "/projects.html",
     "items": [
+      "/projects/04_AI Integration/index.html",
       "/projects/01_segmentation/index.html",
       "/projects/02_turf/index.html",
-      "/projects/03_drivers/index.html"
+      "/projects/03_Sleep_disorder_prediction/index.html"
     ]
   }
 ]
