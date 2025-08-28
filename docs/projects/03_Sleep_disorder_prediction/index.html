@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sleep Disorder Prediction – Shraddhesh Bhalerao</title>
+<title>index – Shraddhesh Bhalerao</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,34 +118,72 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sleep-disorder-prediction" id="toc-sleep-disorder-prediction" class="nav-link active" data-scroll-target="#sleep-disorder-prediction">Sleep Disorder Prediction </a><a href="https://github.com/Shraddhesh10/Sleep-Disorder-Prediction" target="_blank" class="nav-link" data-scroll-target="https\://github.com/Shraddhesh10/Sleep-Disorder-Prediction"><img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&amp;logoColor=white&amp;style=for-the-badge" height="32"></a>
+  <ul class="collapse">
+  <li><a href="#what-the-project-does" id="toc-what-the-project-does" class="nav-link" data-scroll-target="#what-the-project-does">What the Project Does</a></li>
+  <li><a href="#tech-stack-skills-used" id="toc-tech-stack-skills-used" class="nav-link" data-scroll-target="#tech-stack-skills-used">Tech Stack &amp; Skills Used</a></li>
+  <li><a href="#what-makes-it-interesting" id="toc-what-makes-it-interesting" class="nav-link" data-scroll-target="#what-makes-it-interesting">What Makes It Interesting!</a></li>
+  <li><a href="#example-insights" id="toc-example-insights" class="nav-link" data-scroll-target="#example-insights">📊 Example Insights</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Sleep Disorder Prediction</h1>
-</div>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
-<div class="quarto-title-meta">
 
-    
-  
-    
-  </div>
-  
+<section id="sleep-disorder-prediction" class="level1">
+<h1>Sleep Disorder Prediction <a href="https://github.com/Shraddhesh10/Sleep-Disorder-Prediction" target="_blank"><img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&amp;logoColor=white&amp;style=for-the-badge" height="32"></a></h1>
+<p>The objective of this data science project is to analyze lifestyle and medical variables–such as age, BMI, physical activity, sleep duration, and blood pressure–to predict the presence and type of sleep disorder (e.g., Insomnia, Sleep Apnea). Early identification of individuals at risk can enable targeted interventions to improve sleep quality and health outcomes.</p>
+<p>It is a machine learning project implemented in Python (Jupyter Notebook) using scikit-learn to train models that predict sleep disorders based on lifestyle and health metrics.</p>
+<section id="what-the-project-does" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-project-does">What the Project Does</h2>
+<p>The workflow is clear and modular:</p>
+<ul>
+<li><p><strong>Fetch Data</strong> – Uses a curated dataset of health and lifestyle indicators.</p></li>
+<li><p><strong>Preprocess</strong> – Cleans and organizes the raw data (handling missing values, encoding categories, normalization).</p></li>
+<li><p><strong>Build Features</strong> – Extracts meaningful predictors such as age, BMI, sleep duration, stress levels, and heart rate.</p></li>
+<li><p><strong>Train Models</strong> – Applies algorithms like Logistic Regression, Random Forest, and KNN to classify sleep disorder presence.</p></li>
+<li><p><strong>Evaluate</strong> – Compares performance using metrics such as accuracy, precision, recall, and F1-score to determine the best model.</p></li>
+</ul>
+</section>
+<section id="tech-stack-skills-used" class="level2">
+<h2 class="anchored" data-anchor-id="tech-stack-skills-used">Tech Stack &amp; Skills Used</h2>
+<ul>
+<li><p><strong>Language</strong>: Python</p></li>
+<li><p><strong>Libraries</strong>: Pandas, NumPy, scikit-learn, Matplotlib, Seaborn</p></li>
+<li><p><strong>Data Engineering</strong>: Cleaning, preprocessing, feature engineering</p></li>
+<li><p><strong>Machine Learning</strong>: Supervised classification (Logistic Regression, Random Forest, KNN, etc.)</p></li>
+<li><p><strong>Visualization</strong>: Charts and graphs to highlight trends and correlations</p></li>
+</ul>
+</section>
+<section id="what-makes-it-interesting" class="level2">
+<h2 class="anchored" data-anchor-id="what-makes-it-interesting">What Makes It Interesting!</h2>
+<ul>
+<li><p>Works on real-world health data, not synthetic samples.</p></li>
+<li><p>Covers the end-to-end pipeline: dataset → preprocessing → feature extraction → ML model → evaluation.</p></li>
+<li><p>Identifies key lifestyle factors (like BMI, stress, and sleep duration) that strongly influence sleep disorders.</p></li>
+<li><p>Organized modularly, making it easy to extend with new models or datasets.</p></li>
+</ul>
+</section>
+<section id="example-insights" class="level2">
+<h2 class="anchored" data-anchor-id="example-insights">📊 Example Insights</h2>
+<ul>
+<li><p><strong>Correlation Example</strong>: Higher BMI and lower sleep duration are strongly correlated with insomnia.</p></li>
+<li><p><strong>Model Results</strong>: Random Forest achieved the highest accuracy (89%).</p></li>
+<li><p><strong>Visuals</strong>: Feature importance graphs and correlation heatmaps highlight the strongest predictors.</p></li>
+</ul>
 
 
-</header>
-
-
-<p>The objective of this data science project is to analyze lifestyle and medical variables—such as age, BMI, physical activity, sleep duration, and blood pressure—to predict the presence and type of sleep disorder (e.g., Insomnia, Sleep Apnea). Early identification of individuals at risk can enable targeted interventions to improve sleep quality and health outcomes.</p>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

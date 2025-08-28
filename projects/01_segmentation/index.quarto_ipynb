@@ -1,0 +1,275 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"<u>Customer Segmentation with PCA & KMeans</u>\"\n",
+        "image: \"/images/segmentation.jpg\"\n",
+        "format:\n",
+        "  html:\n",
+        "    toc: true\n",
+        "    code-fold: false\n",
+        "execute:\n",
+        "  echo: true\n",
+        "  eval: true\n",
+        "  output: true\n",
+        "  engine : jupyter\n",
+        "  jupyter: python3\n",
+        "---\n",
+        "\n",
+        "## Project Overview\n",
+        "\n",
+        "Performed customer segmentation by applying PCA for dimensionality reduction followed by KMeans clustering. Explored cluster counts from 2 to 6 and evaluated the results using both the Elbow Method and silhouette scores to ensure well-separated groupings. The analysis uncovered distinct clusters characterized by differences in shopping habits, demographics, and financial behavior, providing actionable insights for targeted marketing strategies.\n",
+        "\n",
+        "## My Contributions\n",
+        "\n",
+        "-   Performed data cleaning and exploratory analysis.\n",
+        "-   Executed PCA for dimensionality reduction.\n",
+        "-   Built KMeans clustering models.\n",
+        "-   Visualized clustering outcomes and interpreted customer segments.\n",
+        "\n",
+        "## Technologies Used\n",
+        "\n",
+        "-   Python (Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn)\n",
+        "-   Jupyter Notebook\n",
+        "\n",
+        "## Code"
+      ],
+      "id": "0f9bc065"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "import pandas as pd\n",
+        "import matplotlib.pyplot as plt\n",
+        "from sklearn.preprocessing import StandardScaler, LabelEncoder\n",
+        "from sklearn.cluster import KMeans\n",
+        "import numpy as np\n",
+        "from sklearn.decomposition import PCA\n",
+        "from sklearn.metrics import silhouette_score"
+      ],
+      "id": "24e63b33",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "file_path = \"Segmented_Data_PCA_KMeans.xlsx\"\n",
+        "df = pd.read_excel(file_path)"
+      ],
+      "id": "d31136ad",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "segmentation_vars = [\"Age\", \"Gender\", \"Shopping_on_Amazon\", \"annual_income_US\", \"Parent\", \"Credit\"]\n",
+        "df_segment = df[segmentation_vars]"
+      ],
+      "id": "83ed218e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "label_encoders = {}\n",
+        "categorical_vars = [\"Gender\", \"Shopping_on_Amazon\", \"Parent\", \"Credit\"]\n",
+        "\n",
+        "for col in categorical_vars:\n",
+        "    le = LabelEncoder()\n",
+        "    df_segment[col] = le.fit_transform(df_segment[col].astype(str))\n",
+        "    label_encoders[col] = le"
+      ],
+      "id": "f88f095d",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df_segment[\"annual_income_US\"].fillna(df_segment[\"annual_income_US\"].median(), inplace=True)"
+      ],
+      "id": "1f6a78d6",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "df_segment[\"annual_income_US\"].fillna(df_segment[\"annual_income_US\"].median(), inplace=True)"
+      ],
+      "id": "bd66d79e",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "print(df_segment.isna().sum())\n",
+        "\n",
+        "pca = PCA(n_components=2) \n",
+        "df_pca = pca.fit_transform(df_segment) \n",
+        "df_pca = pd.DataFrame(df_pca, columns=[\"PC1\", \"PC2\"]) \n",
+        "print(df_pca)"
+      ],
+      "id": "6db97398",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "wcss = []\n",
+        "silhouette_scores = []\n",
+        "\n",
+        "for k in range(2, 7): \n",
+        "    kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)\n",
+        "    labels = kmeans.fit_predict(df_pca)\n",
+        "    wcss.append(kmeans.inertia_)\n",
+        "    silhouette_scores.append(silhouette_score(df_pca, labels))\n",
+        "    \n",
+        "plt.figure(figsize=(8, 5))\n",
+        "plt.plot(range(2, 7), wcss, marker=\"o\")\n",
+        "plt.xlabel(\"Number of Clusters (K)\")\n",
+        "plt.ylabel(\"WCSS\")\n",
+        "plt.title(\"Elbow Method for Optimal K\")\n",
+        "plt.show()\n",
+        "\n",
+        "for i, k in enumerate(range(2, 7)):\n",
+        "    print(f\"K={k}, Silhouette Score={silhouette_scores[i]:.4f}\")"
+      ],
+      "id": "ce201eff",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "optimal_k = 3 \n",
+        "kmeans = KMeans(n_clusters=optimal_k, random_state=42, n_init=10)\n",
+        "df[\"Segment\"] = kmeans.fit_predict(df_pca)\n",
+        "df.to_excel(\"Segmented_Data_PCA_KMeans.xlsx\", index=False)"
+      ],
+      "id": "69e6f09f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "plt.figure(figsize=(8, 6))\n",
+        "sns.scatterplot(x=df_pca[\"PC1\"], y=df_pca[\"PC2\"], hue=df[\"Segment\"], palette=\"viridis\")\n",
+        "plt.title(\" K=3\")\n",
+        "plt.xlabel(\"Principal Component 1\")\n",
+        "plt.ylabel(\"Principal Component 2\")\n",
+        "plt.legend(title=\"Cluster\")\n",
+        "plt.show()"
+      ],
+      "id": "7d69ffe7",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Output"
+      ],
+      "id": "9dc3b272"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "print(df.groupby(\"Segment\").mean())"
+      ],
+      "id": "ae8b9c11",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "segment_summary = df.groupby(\"Segment\").mean()\n",
+        "\n",
+        "from IPython.display import display\n",
+        "display(segment_summary)"
+      ],
+      "id": "e4b8213f",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "segment_counts = df[\"Segment\"].value_counts()\n",
+        "total_count = len(df)\n",
+        "\n",
+        "segment_percentage = (segment_counts / total_count) * 100\n",
+        "segment_percentage_df = segment_percentage.reset_index()\n",
+        "segment_percentage_df.columns = [\"Segment\", \"Percentage\"]\n",
+        "display(segment_percentage_df)"
+      ],
+      "id": "b35b0b1c",
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "percent_by_gender = pd.crosstab(\n",
+        "    df[\"Gender\"], \n",
+        "    df[\"Segment\"], \n",
+        "    normalize=\"index\"\n",
+        ") * 100\n",
+        "\n",
+        "print(\"Row-Wise \")\n",
+        "display(percent_by_gender)\n",
+        "percent_by_segment = pd.crosstab(\n",
+        "    df[\"Gender\"], \n",
+        "    df[\"Segment\"], \n",
+        "    normalize=\"columns\"\n",
+        ") * 100\n",
+        "\n",
+        "print(\"Column-Wise \")\n",
+        "display(percent_by_segment)\n",
+        "counts_with_totals = pd.crosstab(\n",
+        "    df[\"Gender\"], \n",
+        "    df[\"Segment\"], \n",
+        "    margins=True\n",
+        ")\n",
+        "display(counts_with_totals)"
+      ],
+      "id": "bdb42946",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "Python 3",
+      "language": "python",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}

@@ -1,0 +1,41 @@
+---
+image: "/images/AI.jpg"
+---
+
+# Premiere League AI Assistant <a href="https://github.com/Shraddhesh10/Premiere-League-AI-assistant" target="_blank"><img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&amp;logoColor=white&amp;style=for-the-badge" height="32"/></a>
+
+An AI-driven assistant that brings the Premier League to life through data and interaction.It pulls in match data, processes it, builds insights, and wraps everything into a chatbot that can answer your football-related queries.
+
+## What the Project Does
+
+### The workflow is simple and modular:
+
+-   **Fetch Data** – Connects to live Premier League APIs and gathers real-time stats.
+
+-   **Preprocess** – Cleans and organizes the incoming data so it’s ready to use.
+
+-   **Build Features** – Extracts key insights from the stats (players, matches, trends).
+
+-   **Recommend** – Suggests players, teams, or match highlights based on the data.
+
+-   **Chatbot** – Lets users interact directly, ask questions, and get quick, football-focused answers.
+
+## Tech Stack & Skills Used
+
+-   **Language:** Python
+
+-   **APIs**: Integration with live Premier League APIs for up-to-date data
+
+-   **Data Engineering:** Cleaning, preprocessing, and feature building
+
+-   **Conversational AI:** A chatbot interface for user interaction and Q&A about football
+
+## What makes it interesting!
+
+-   Uses real-time data, not just static datasets.
+
+-   Covers the full pipeline: from API integration → data cleaning → insights → Q&A chatbot.
+
+-   Organized into clear modules, making it easy to expand with new features.
+
+-   Shows how football data can be made interactive and engaging for fans.

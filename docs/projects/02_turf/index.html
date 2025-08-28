@@ -289,95 +289,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Let me show you how much faster it is:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rcpp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'Rcpp' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'microbenchmark' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compile the C++ function</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sourceCpp</span>(<span class="st">"turf_rcpp.cpp"</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load sample data</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">read.csv</span>(<span class="st">"out_mat1_forSB.csv"</span>))</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run TURF using optimized function</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">turf</span>(data, <span class="at">j =</span> <span class="dv">5</span>, <span class="at">keep =</span> <span class="dv">10</span>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     size  rank      reach       freq item1 item2 item3 item4 item5
-    &lt;int&gt; &lt;int&gt;      &lt;num&gt;      &lt;num&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
- 1:     1     1 0.30677401 0.30677401     3    NA    NA    NA    NA
- 2:     1     2 0.13520267 0.13520267     9    NA    NA    NA    NA
- 3:     1     3 0.12382010 0.12382010     7    NA    NA    NA    NA
- 4:     1     4 0.10355358 0.10355358    10    NA    NA    NA    NA
- 5:     1     5 0.10161022 0.10161022     1    NA    NA    NA    NA
- 6:     1     6 0.05219323 0.05219323     2    NA    NA    NA    NA
- 7:     1     7 0.04858412 0.04858412     8    NA    NA    NA    NA
- 8:     1     8 0.04164353 0.04164353    11    NA    NA    NA    NA
- 9:     1     9 0.03803443 0.03803443    12    NA    NA    NA    NA
-10:     1    10 0.02415325 0.02415325     4    NA    NA    NA    NA
-11:     2     1 0.44197668 0.44197668     3     9    NA    NA    NA
-12:     2     2 0.43059411 0.43059411     3     7    NA    NA    NA
-13:     2     3 0.41032760 0.41032760     3    10    NA    NA    NA
-14:     2     4 0.40838423 0.40838423     1     3    NA    NA    NA
-15:     2     5 0.35896724 0.35896724     2     3    NA    NA    NA
-16:     2     6 0.35535813 0.35535813     3     8    NA    NA    NA
-17:     2     7 0.34841755 0.34841755     3    11    NA    NA    NA
-18:     2     8 0.34480844 0.34480844     3    12    NA    NA    NA
-19:     2     9 0.33092726 0.33092726     3     4    NA    NA    NA
-20:     2    10 0.32287618 0.32287618     3     6    NA    NA    NA
-21:     3     1 0.56579678 0.56579678     3     7     9    NA    NA
-22:     3     2 0.54553026 0.54553026     3     9    10    NA    NA
-23:     3     3 0.54358690 0.54358690     1     3     9    NA    NA
-24:     3     4 0.53414770 0.53414770     3     7    10    NA    NA
-25:     3     5 0.53220433 0.53220433     1     3     7    NA    NA
-26:     3     6 0.51193781 0.51193781     1     3    10    NA    NA
-27:     3     7 0.49416991 0.49416991     2     3     9    NA    NA
-28:     3     8 0.49056080 0.49056080     3     8     9    NA    NA
-29:     3     9 0.48362021 0.48362021     3     9    11    NA    NA
-30:     3    10 0.48278734 0.48278734     2     3     7    NA    NA
-31:     4     1 0.66935036 0.66935036     3     7     9    10    NA
-32:     4     2 0.66740700 0.66740700     1     3     7     9    NA
-33:     4     3 0.64714048 0.64714048     1     3     9    10    NA
-34:     4     4 0.63575791 0.63575791     1     3     7    10    NA
-35:     4     5 0.61799001 0.61799001     2     3     7     9    NA
-36:     4     6 0.61438090 0.61438090     3     7     8     9    NA
-37:     4     7 0.60744031 0.60744031     3     7     9    11    NA
-38:     4     8 0.60383120 0.60383120     3     7     9    12    NA
-39:     4     9 0.59772349 0.59772349     2     3     9    10    NA
-40:     4    10 0.59578012 0.59578012     1     2     3     9    NA
-41:     5     1 0.77096058 0.77096058     1     3     7     9    10
-42:     5     2 0.72154359 0.72154359     2     3     7     9    10
-43:     5     3 0.71960022 0.71960022     1     2     3     7     9
-44:     5     4 0.71793448 0.71793448     3     7     8     9    10
-45:     5     5 0.71599112 0.71599112     1     3     7     8     9
-46:     5     6 0.71099389 0.71099389     3     7     9    10    11
-47:     5     7 0.70905053 0.70905053     1     3     7     9    11
-48:     5     8 0.70738479 0.70738479     3     7     9    10    12
-49:     5     9 0.70544142 0.70544142     1     3     7     9    12
-50:     5    10 0.69933370 0.69933370     1     2     3     9    10
-     size  rank      reach       freq item1 item2 item3 item4 item5</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Benchmark performance</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(result_og <span class="ot">&lt;-</span> <span class="fu">turf</span>(data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   user  system elapsed 
-   0.07    0.01    0.07 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">turf</span>(data, <span class="at">j =</span> <span class="dv">5</span>, <span class="at">keep =</span> <span class="dv">10</span>),</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> <span class="dv">10</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Unit: milliseconds
-                         expr     min      lq     mean   median      uq     max
- turf(data, j = 5, keep = 10) 72.6025 76.7587 77.78296 77.86105 79.8709 81.0172
- neval
-    10</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rcpp)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(microbenchmark)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compile the C++ function</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sourceCpp</span>(<span class="st">"turf_rcpp.cpp"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load sample data</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">read.csv</span>(<span class="st">"out_mat1_forSB.csv"</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Run TURF using optimized function</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">turf</span>(data, <span class="at">j =</span> <span class="dv">5</span>, <span class="at">keep =</span> <span class="dv">10</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(result)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Benchmark performance</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(result_og <span class="ot">&lt;-</span> <span class="fu">turf</span>(data))</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu">microbenchmark</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">turf</span>(data, <span class="at">j =</span> <span class="dv">5</span>, <span class="at">keep =</span> <span class="dv">10</span>),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">times =</span> <span class="dv">10</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

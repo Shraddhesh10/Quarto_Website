@@ -1,7 +1,24 @@
----
-title: Certifications
----
+<h2>
 
-## IBM Data Science Professional Certificate
+1.  <u>IBM Data Science Professional Certificate</u>
 
-## Generative AI Engineering with LLMs Specialization
+    </h2>
+
+-   [What is Data Science](certifics/What%20is%20Data%20Science.pdf)
+-   [Tools for Data Science](certifics/Tools%20for%20Data%20Science.pdf)
+-   [Data Science Methodology](certifics/Data%20Science%20Methodology.pdf)
+-   [Data Analysis with Python](certifics/Data%20Analysis%20with%20Python.pdf)
+-   [Databases and SQL with Python](certifics/Databases%20and%20SQL%20with%20Python.pdf)
+-   [Machine Learning with Python](certifics/Machine%20Learning%20with%20Python.pdf)
+-   [Generative AI](certifics/Generative%20AI.pdf)
+
+<h2>
+
+2.  <u>Generative AI Engineering with LLMs Specialization</u></h2>
+
+-   [1. Architecture and Data](certifics/1.Architecture%20and%20Data.pdf)
+-   [2. Gen AI Foundational Models for NLP & Language](certifics/2.Gen%20AI%20Foundational%20Models%20for%20NLP%20&%20Language.pdf)
+-   [3. Generative AI Language Modeling](certifics/3.Generative%20AI%20Language%20Modeling.pdf)
+-   [4. Generative AI Engineering and Fine-Tuning Transformers](certifics/4.Generative%20AI%20Engineering%20and%20Fine-Tuning%20Transformers.pdf)
+-   [5. Generative AI Advanced Fine-Tuning for LLMs](certifics/5.Generative%20AI%20Advance%20Fine-Tuning%20for%20LLMs.pdf)
+-   [6. Fundamentals of AI Agents Using RAG and LangChain](certifics/6.Fundamentals%20of%20AI%20Agents%20Using%20RAG%20and%20LangChain.pdf)

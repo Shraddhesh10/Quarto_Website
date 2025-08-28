@@ -1,7 +1,9 @@
 ---
 title: "<u>Fast TURF with RCPP</u>"
 description: "Optimized a TURF model by rewriting it in C++ using Rcpp, achieving major speed-ups compared to base R."
-image: "images/turf-thumbnail.png"
+image: "/images/rcpp.jpg"
+execute:
+    eval: false
 ---
 
 ## What is TURF?
@@ -12,8 +14,7 @@ TURF (Total Unduplicated Reach and Frequency) is a marketing analytics technique
 
 They were using R code with lots of loops to calculate all possible combinations for TURF analysis. While this approach works for small datasets, it becomes very slow and inefficient when there are many products or respondents.
 
-Why? 
-Because, R loops are not the fastest — they go one step at a time.
+Why? Because, R loops are not the fastest --- they go one step at a time.
 
 TURF needs to test millions of combinations, especially when selecting the best 5 out of 20+ items.
 
@@ -21,12 +22,12 @@ As the number of items grows, the number of combinations explodes, making the R 
 
 This made it hard to work with larger datasets or run multiple TURF analyses quickly.
 
-
-
 ## My Solution
-### The C++ Code:###
+
+### The C++ Code:
 
 I rewrote the critical portions in C++ using `Rcpp` to drastically reduce computation time and memory usage.
+
 ```{cpp}
 #include <Rcpp.h>
 using namespace Rcpp;
@@ -128,6 +129,3 @@ microbenchmark(
   times = 10
 )
 ```
-
-
-

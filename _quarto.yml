@@ -1,10 +1,19 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - resume.qmd
+    - projects.qmd
+    - certifications/**/*.qmd
+    - projects/**/index.qmd
+    - "!myenv/**"
+    - "!.venv/**"
+    - "!**/*.md"
+
   
 website:
   title: "Shraddhesh Bhalerao"
-  
 
   navbar:
     left:
@@ -16,9 +25,9 @@ website:
         text: Projects
       - href: certifications/certificates.qmd
         text: Certifications
-        
-google-site-verification: NsbAdXXXyyhbPUML-RAXRhkbgt8stoPOTp47ISXGzQk
+      
 
+google-site-verification: NsbAdXXXyyhbPUML-RAXRhkbgt8stoPOTp47ISXGzQk
 
 format:
   html:
@@ -29,4 +38,7 @@ format:
     include-in-header: meta.html
 
 editor: visual
+
+execute:
+  enabled: false
 

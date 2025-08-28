@@ -1,6 +1,29 @@
-.Rproj.user
+# Quarto build output
+*_files/
+*_cache/
+docs/
+
+
+# R session / history files
 .Rhistory
 .RData
+.Rproj.user/
 .Ruserdata
+.Rproj*
 
-/.quarto/
+# VS Code / editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Quarto internal cache
+.quarto/
+
+#Certificates
+ certifications/certifics/*.pdf
+

@@ -1,6 +1,54 @@
 ---
-title: "Sleep Disorder Prediction"
+image: "/images/sleep.jpg"
 class: page-project
 ---
 
-The objective of this data science project is to analyze lifestyle and medical variables—such as age, BMI, physical activity, sleep duration, and blood pressure—to predict the presence and type of sleep disorder (e.g., Insomnia, Sleep Apnea). Early identification of individuals at risk can enable targeted interventions to improve sleep quality and health outcomes.
+# Sleep Disorder Prediction <a href="https://github.com/Shraddhesh10/Sleep-Disorder-Prediction" target="_blank"><img src="https://img.shields.io/badge/GitHub-Repository-181717?logo=github&amp;logoColor=white&amp;style=for-the-badge" height="32"/></a>
+
+The objective of this data science project is to analyze lifestyle and medical variables–such as age, BMI, physical activity, sleep duration, and blood pressure–to predict the presence and type of sleep disorder (e.g., Insomnia, Sleep Apnea). Early identification of individuals at risk can enable targeted interventions to improve sleep quality and health outcomes.
+
+It is a machine learning project implemented in Python (Jupyter Notebook) using scikit-learn to train models that predict sleep disorders based on lifestyle and health metrics.
+
+## What the Project Does
+
+The workflow is clear and modular:
+
+-   **Fetch Data** – Uses a curated dataset of health and lifestyle indicators.
+
+-   **Preprocess** – Cleans and organizes the raw data (handling missing values, encoding categories, normalization).
+
+-   **Build Features** – Extracts meaningful predictors such as age, BMI, sleep duration, stress levels, and heart rate.
+
+-   **Train Models** – Applies algorithms like Logistic Regression, Random Forest, and KNN to classify sleep disorder presence.
+
+-   **Evaluate** – Compares performance using metrics such as accuracy, precision, recall, and F1-score to determine the best model.
+
+## Tech Stack & Skills Used
+
+-   **Language**: Python
+
+-   **Libraries**: Pandas, NumPy, scikit-learn, Matplotlib, Seaborn
+
+-   **Data Engineering**: Cleaning, preprocessing, feature engineering
+
+-   **Machine Learning**: Supervised classification (Logistic Regression, Random Forest, KNN, etc.)
+
+-   **Visualization**: Charts and graphs to highlight trends and correlations
+
+## What Makes It Interesting!
+
+-   Works on real-world health data, not synthetic samples.
+
+-   Covers the end-to-end pipeline: dataset → preprocessing → feature extraction → ML model → evaluation.
+
+-   Identifies key lifestyle factors (like BMI, stress, and sleep duration) that strongly influence sleep disorders.
+
+-   Organized modularly, making it easy to extend with new models or datasets.
+
+## 📊 Example Insights
+
+-   **Correlation Example**: Higher BMI and lower sleep duration are strongly correlated with insomnia.
+
+-   **Model Results**: Random Forest achieved the highest accuracy (89%).
+
+-   **Visuals**: Feature importance graphs and correlation heatmaps highlight the strongest predictors.

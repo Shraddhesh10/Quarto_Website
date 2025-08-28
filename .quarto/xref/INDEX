@@ -40,5 +40,44 @@
   },
   "certifications/certificates.qmd": {
     "certificates.html": "22ccdc0d"
+  },
+  "projects/01_segmentation/index.ipynb": {
+    "index.html": "4d9b6639"
+  },
+  "myenv/Lib/site-packages/cffi/recompiler.py": {
+    "recompiler.html": "e3248324"
+  },
+  "myenv/Lib/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "0f6d6855"
+  },
+  "myenv/Lib/site-packages/httpx-0.28.1.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "95448fa2"
+  },
+  "myenv/Lib/site-packages/idna-3.10.dist-info/LICENSE.md": {
+    "LICENSE.html": "3ca01e5c"
+  },
+  "myenv/Lib/site-packages/numpy/random/LICENSE.md": {
+    "LICENSE.html": "e951e363"
+  },
+  "myenv/Lib/site-packages/pandas/tests/indexes/datetimes/test_indexing.py": {
+    "test_indexing.html": "0309c29f"
+  },
+  "myenv/Lib/site-packages/pandas/tests/indexes/period/test_constructors.py": {
+    "test_constructors.html": "7f842623"
+  },
+  "myenv/Lib/site-packages/pandas/tests/indexes/period/test_indexing.py": {
+    "test_indexing.html": "4db44161"
+  },
+  "myenv/Lib/site-packages/pyzmq-27.0.0.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "3daed26d"
+  },
+  "myenv/Lib/site-packages/soupsieve-2.7.dist-info/licenses/LICENSE.md": {
+    "LICENSE.html": "91ac4e7f"
+  },
+  "docs/projects/01_segmentation/index.ipynb": {
+    "index.html": "9046e20a"
+  },
+  "projects/04_Premiere League AI Assistant/index.qmd": {
+    "index.html": "1bc2fcdb"
   }
 }

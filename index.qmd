@@ -16,17 +16,31 @@ about:
 format:
   html:
     page-layout: full
+execute:
+    eval: false
 ---
 
 ::: {#main-content}
-## Current
+# 👋 Hi, I'm Shraddhesh
 
--   Data Science Intern \| GBK Collective
+I’m a Data Science enthusiast with a strong foundation in Machine learning, AI, and analytics. My work includes AI assistants, segmentation frameworks, and C++-accelerated simulation tools that drive real-world impact.
+
+### ⚡ Highlights
+
+-   Built a GPT-4o-RAG based AI Segmentation Assistant to automate cluster analysis.
+-   Applied PCA and KMeans to segment customers and surface insights for targeted marketing.
+-   Rewrote slow R code in C++ with Rcpp, achieving 5× speedups in TURF simulations.
 
 ------------------------------------------------------------------------
 
-## Education
+## 💼Experience
 
--   B.Tech Computer Science & Engineering [\|Symbiosis Institute of Technology, Pune - June 2021-June 2025]{.gray}
--   Junior College [\| Atomic Energy Central School No.1, Tarapur (April 2019 - June 2021)]{.gray}
+-   Data Science Intern \| GBK Collective, USA (Feb 2025 - August 2025)
+
+------------------------------------------------------------------------
+
+## 🎓 Education
+
+-   B.Tech, Computer Science & Engineering [Symbiosis Institute of Technology, Pune – June 2021–June 2025]{.gray}
+-   Junior College [Atomic Energy Central School No.1, Tarapur – April 2019–June 2021]{.gray}
 :::

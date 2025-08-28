@@ -1,10 +1,31 @@
 [
   {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Shraddhesh’s Resume",
+    "objectID": "projects/04_Premiere League AI Assistant/index.html",
+    "href": "projects/04_Premiere League AI Assistant/index.html",
+    "title": "Premiere League AI Assistant ",
     "section": "",
-    "text": "Download PDF file."
+    "text": "An AI-driven assistant that brings the Premier League to life through data and interaction.It pulls in match data, processes it, builds insights, and wraps everything into a chatbot that can answer your football-related queries.\n\n\n\n\n\nFetch Data – Connects to live Premier League APIs and gathers real-time stats.\nPreprocess – Cleans and organizes the incoming data so it’s ready to use.\nBuild Features – Extracts key insights from the stats (players, matches, trends).\nRecommend – Suggests players, teams, or match highlights based on the data.\nChatbot – Lets users interact directly, ask questions, and get quick, football-focused answers.\n\n\n\n\n\n\nLanguage: Python\nAPIs: Integration with live Premier League APIs for up-to-date data\nData Engineering: Cleaning, preprocessing, and feature building\nConversational AI: A chatbot interface for user interaction and Q&A about football\n\n\n\n\n\nUses real-time data, not just static datasets.\nCovers the full pipeline: from API integration → data cleaning → insights → Q&A chatbot.\nOrganized into clear modules, making it easy to expand with new features.\nShows how football data can be made interactive and engaging for fans."
+  },
+  {
+    "objectID": "projects/04_Premiere League AI Assistant/index.html#what-the-project-does",
+    "href": "projects/04_Premiere League AI Assistant/index.html#what-the-project-does",
+    "title": "Premiere League AI Assistant ",
+    "section": "",
+    "text": "Fetch Data – Connects to live Premier League APIs and gathers real-time stats.\nPreprocess – Cleans and organizes the incoming data so it’s ready to use.\nBuild Features – Extracts key insights from the stats (players, matches, trends).\nRecommend – Suggests players, teams, or match highlights based on the data.\nChatbot – Lets users interact directly, ask questions, and get quick, football-focused answers."
+  },
+  {
+    "objectID": "projects/04_Premiere League AI Assistant/index.html#tech-stack-skills-used",
+    "href": "projects/04_Premiere League AI Assistant/index.html#tech-stack-skills-used",
+    "title": "Premiere League AI Assistant ",
+    "section": "",
+    "text": "Language: Python\nAPIs: Integration with live Premier League APIs for up-to-date data\nData Engineering: Cleaning, preprocessing, and feature building\nConversational AI: A chatbot interface for user interaction and Q&A about football"
+  },
+  {
+    "objectID": "projects/04_Premiere League AI Assistant/index.html#what-makes-it-interesting",
+    "href": "projects/04_Premiere League AI Assistant/index.html#what-makes-it-interesting",
+    "title": "Premiere League AI Assistant ",
+    "section": "",
+    "text": "Uses real-time data, not just static datasets.\nCovers the full pipeline: from API integration → data cleaning → insights → Q&A chatbot.\nOrganized into clear modules, making it easy to expand with new features.\nShows how football data can be made interactive and engaging for fans."
   },
   {
     "objectID": "projects/02_turf/index.html",
@@ -32,49 +53,70 @@
     "href": "projects/02_turf/index.html#my-solution",
     "title": "Fast TURF with RCPP",
     "section": "My Solution",
-    "text": "My Solution\n\nThe C++ Code:\nI rewrote the critical portions in C++ using Rcpp to drastically reduce computation time and memory usage.\n\n#include &lt;Rcpp.h&gt;\nusing namespace Rcpp;\n\n// [[Rcpp::export]]\nDataFrame turf_m(NumericMatrix mat, int m, int keep = 10, SEXP w = R_NilValue) {\n  int N = mat.nrow(), J = mat.ncol();\n  if (m &lt; 1 || m &gt; J) stop(\"m must be between 1 and ncol(mat)\");\n  \n  // Handle weights\n  NumericVector weights = (Rf_isNull(w) || (Rf_length(w) == 1 && as&lt;double&gt;(w) == 1.0))\n    ? NumericVector(N, 1.0)\n      : as&lt;NumericVector&gt;(w);\n  \n  if (weights.size() != N || is_true(any(weights &lt; 0)) || sum(weights) == 0 ||\n      is_true(any(!is_finite(weights))) || is_true(any(is_na(weights))))\n    stop(\"Invalid weights\");\n  \n  // Generate combinations of m columns\n  IntegerMatrix combos = transpose(as&lt;IntegerMatrix&gt;(Function(\"combn\")(J, m)));\n  int M = combos.nrow();\n  \n  NumericVector reach(M), freq(M);\n  for (int i = 0; i &lt; M; ++i) {\n    NumericVector y(N);\n    for (int j = 0; j &lt; m; ++j) {\n      int col = combos(i, j) - 1;\n      for (int n = 0; n &lt; N; ++n)\n        y[n] += mat(n, col);\n    }\n    \n    double rsum = 0, fsum = 0, wsum = sum(weights);\n    for (int n = 0; n &lt; N; ++n) {\n      if (y[n] &gt; 0) rsum += weights[n];\n      fsum += y[n] * weights[n];\n    }\n    \n    reach[i] = rsum / wsum;\n    freq[i]  = fsum / wsum;\n  }\n  \n  // Sort by reach and keep top combos\n  IntegerVector ord = as&lt;IntegerVector&gt;(Function(\"order\")(reach, _[\"decreasing\"] = true));\n  int n = std::min(M, keep);\n  ord = ord[Range(0, n - 1)];\n  \n  // Build output\n  List out = List::create(\n    _[\"size\"] = rep(m, n),\n    _[\"rank\"] = seq_len(n),\n    _[\"reach\"] = reach[ord - 1],\n                      _[\"freq\"]  = freq[ord - 1]\n  );\n  \n  for (int j = 0; j &lt; m; ++j) {\n    IntegerVector items(n);\n    for (int i = 0; i &lt; n; ++i)\n      items[i] = combos(ord[i] - 1, j);\n    out[\"item\" + std::to_string(j + 1)] = items;\n  }\n  \n  return as&lt;DataFrame&gt;(out);\n}\n\n// [[Rcpp::export]]\nDataFrame turf(NumericMatrix mat, int j = -1, int keep = 10, SEXP w = R_NilValue) {\n  if (j == -1) j = std::min(5, mat.ncol() - 1);\n  \n  List res;\n  for (int m = 1; m &lt;= j; ++m)\n    res.push_back(turf_m(mat, m, keep, w));\n  \n  return as&lt;DataFrame&gt;(Function(\"rbindlist\", Environment::namespace_env(\"data.table\"))(res, Named(\"fill\") = true));\n}\n\nLet me show you how much faster it is:\n\nlibrary(Rcpp)\n\nWarning: package 'Rcpp' was built under R version 4.3.3\n\nlibrary(microbenchmark)\n\nWarning: package 'microbenchmark' was built under R version 4.3.3\n\n# Compile the C++ function\nsourceCpp(\"turf_rcpp.cpp\")\n\n# Load sample data\ndata &lt;- as.matrix(read.csv(\"out_mat1_forSB.csv\"))\n\n# Run TURF using optimized function\nresult &lt;- turf(data, j = 5, keep = 10)\nprint(result)\n\n     size  rank      reach       freq item1 item2 item3 item4 item5\n    &lt;int&gt; &lt;int&gt;      &lt;num&gt;      &lt;num&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1:     1     1 0.30677401 0.30677401     3    NA    NA    NA    NA\n 2:     1     2 0.13520267 0.13520267     9    NA    NA    NA    NA\n 3:     1     3 0.12382010 0.12382010     7    NA    NA    NA    NA\n 4:     1     4 0.10355358 0.10355358    10    NA    NA    NA    NA\n 5:     1     5 0.10161022 0.10161022     1    NA    NA    NA    NA\n 6:     1     6 0.05219323 0.05219323     2    NA    NA    NA    NA\n 7:     1     7 0.04858412 0.04858412     8    NA    NA    NA    NA\n 8:     1     8 0.04164353 0.04164353    11    NA    NA    NA    NA\n 9:     1     9 0.03803443 0.03803443    12    NA    NA    NA    NA\n10:     1    10 0.02415325 0.02415325     4    NA    NA    NA    NA\n11:     2     1 0.44197668 0.44197668     3     9    NA    NA    NA\n12:     2     2 0.43059411 0.43059411     3     7    NA    NA    NA\n13:     2     3 0.41032760 0.41032760     3    10    NA    NA    NA\n14:     2     4 0.40838423 0.40838423     1     3    NA    NA    NA\n15:     2     5 0.35896724 0.35896724     2     3    NA    NA    NA\n16:     2     6 0.35535813 0.35535813     3     8    NA    NA    NA\n17:     2     7 0.34841755 0.34841755     3    11    NA    NA    NA\n18:     2     8 0.34480844 0.34480844     3    12    NA    NA    NA\n19:     2     9 0.33092726 0.33092726     3     4    NA    NA    NA\n20:     2    10 0.32287618 0.32287618     3     6    NA    NA    NA\n21:     3     1 0.56579678 0.56579678     3     7     9    NA    NA\n22:     3     2 0.54553026 0.54553026     3     9    10    NA    NA\n23:     3     3 0.54358690 0.54358690     1     3     9    NA    NA\n24:     3     4 0.53414770 0.53414770     3     7    10    NA    NA\n25:     3     5 0.53220433 0.53220433     1     3     7    NA    NA\n26:     3     6 0.51193781 0.51193781     1     3    10    NA    NA\n27:     3     7 0.49416991 0.49416991     2     3     9    NA    NA\n28:     3     8 0.49056080 0.49056080     3     8     9    NA    NA\n29:     3     9 0.48362021 0.48362021     3     9    11    NA    NA\n30:     3    10 0.48278734 0.48278734     2     3     7    NA    NA\n31:     4     1 0.66935036 0.66935036     3     7     9    10    NA\n32:     4     2 0.66740700 0.66740700     1     3     7     9    NA\n33:     4     3 0.64714048 0.64714048     1     3     9    10    NA\n34:     4     4 0.63575791 0.63575791     1     3     7    10    NA\n35:     4     5 0.61799001 0.61799001     2     3     7     9    NA\n36:     4     6 0.61438090 0.61438090     3     7     8     9    NA\n37:     4     7 0.60744031 0.60744031     3     7     9    11    NA\n38:     4     8 0.60383120 0.60383120     3     7     9    12    NA\n39:     4     9 0.59772349 0.59772349     2     3     9    10    NA\n40:     4    10 0.59578012 0.59578012     1     2     3     9    NA\n41:     5     1 0.77096058 0.77096058     1     3     7     9    10\n42:     5     2 0.72154359 0.72154359     2     3     7     9    10\n43:     5     3 0.71960022 0.71960022     1     2     3     7     9\n44:     5     4 0.71793448 0.71793448     3     7     8     9    10\n45:     5     5 0.71599112 0.71599112     1     3     7     8     9\n46:     5     6 0.71099389 0.71099389     3     7     9    10    11\n47:     5     7 0.70905053 0.70905053     1     3     7     9    11\n48:     5     8 0.70738479 0.70738479     3     7     9    10    12\n49:     5     9 0.70544142 0.70544142     1     3     7     9    12\n50:     5    10 0.69933370 0.69933370     1     2     3     9    10\n     size  rank      reach       freq item1 item2 item3 item4 item5\n\n# Benchmark performance\nsystem.time(result_og &lt;- turf(data))\n\n   user  system elapsed \n   0.07    0.01    0.07 \n\nmicrobenchmark(\n  turf(data, j = 5, keep = 10),\n  times = 10\n)\n\nUnit: milliseconds\n                         expr     min      lq     mean   median      uq     max\n turf(data, j = 5, keep = 10) 72.6025 76.7587 77.78296 77.86105 79.8709 81.0172\n neval\n    10"
+    "text": "My Solution\n\nThe C++ Code:\nI rewrote the critical portions in C++ using Rcpp to drastically reduce computation time and memory usage.\n\n#include &lt;Rcpp.h&gt;\nusing namespace Rcpp;\n\n// [[Rcpp::export]]\nDataFrame turf_m(NumericMatrix mat, int m, int keep = 10, SEXP w = R_NilValue) {\n  int N = mat.nrow(), J = mat.ncol();\n  if (m &lt; 1 || m &gt; J) stop(\"m must be between 1 and ncol(mat)\");\n  \n  // Handle weights\n  NumericVector weights = (Rf_isNull(w) || (Rf_length(w) == 1 && as&lt;double&gt;(w) == 1.0))\n    ? NumericVector(N, 1.0)\n      : as&lt;NumericVector&gt;(w);\n  \n  if (weights.size() != N || is_true(any(weights &lt; 0)) || sum(weights) == 0 ||\n      is_true(any(!is_finite(weights))) || is_true(any(is_na(weights))))\n    stop(\"Invalid weights\");\n  \n  // Generate combinations of m columns\n  IntegerMatrix combos = transpose(as&lt;IntegerMatrix&gt;(Function(\"combn\")(J, m)));\n  int M = combos.nrow();\n  \n  NumericVector reach(M), freq(M);\n  for (int i = 0; i &lt; M; ++i) {\n    NumericVector y(N);\n    for (int j = 0; j &lt; m; ++j) {\n      int col = combos(i, j) - 1;\n      for (int n = 0; n &lt; N; ++n)\n        y[n] += mat(n, col);\n    }\n    \n    double rsum = 0, fsum = 0, wsum = sum(weights);\n    for (int n = 0; n &lt; N; ++n) {\n      if (y[n] &gt; 0) rsum += weights[n];\n      fsum += y[n] * weights[n];\n    }\n    \n    reach[i] = rsum / wsum;\n    freq[i]  = fsum / wsum;\n  }\n  \n  // Sort by reach and keep top combos\n  IntegerVector ord = as&lt;IntegerVector&gt;(Function(\"order\")(reach, _[\"decreasing\"] = true));\n  int n = std::min(M, keep);\n  ord = ord[Range(0, n - 1)];\n  \n  // Build output\n  List out = List::create(\n    _[\"size\"] = rep(m, n),\n    _[\"rank\"] = seq_len(n),\n    _[\"reach\"] = reach[ord - 1],\n                      _[\"freq\"]  = freq[ord - 1]\n  );\n  \n  for (int j = 0; j &lt; m; ++j) {\n    IntegerVector items(n);\n    for (int i = 0; i &lt; n; ++i)\n      items[i] = combos(ord[i] - 1, j);\n    out[\"item\" + std::to_string(j + 1)] = items;\n  }\n  \n  return as&lt;DataFrame&gt;(out);\n}\n\n// [[Rcpp::export]]\nDataFrame turf(NumericMatrix mat, int j = -1, int keep = 10, SEXP w = R_NilValue) {\n  if (j == -1) j = std::min(5, mat.ncol() - 1);\n  \n  List res;\n  for (int m = 1; m &lt;= j; ++m)\n    res.push_back(turf_m(mat, m, keep, w));\n  \n  return as&lt;DataFrame&gt;(Function(\"rbindlist\", Environment::namespace_env(\"data.table\"))(res, Named(\"fill\") = true));\n}\n\nLet me show you how much faster it is:\n\nlibrary(Rcpp)\nlibrary(microbenchmark)\n\n# Compile the C++ function\nsourceCpp(\"turf_rcpp.cpp\")\n\n# Load sample data\ndata &lt;- as.matrix(read.csv(\"out_mat1_forSB.csv\"))\n\n# Run TURF using optimized function\nresult &lt;- turf(data, j = 5, keep = 10)\nprint(result)\n\n# Benchmark performance\nsystem.time(result_og &lt;- turf(data))\n\nmicrobenchmark(\n  turf(data, j = 5, keep = 10),\n  times = 10\n)"
+  },
+  {
+    "objectID": "certifications/certificates.html",
+    "href": "certifications/certificates.html",
+    "title": "My Certifications",
+    "section": "",
+    "text": "🎓 My Certifications\n\n\nIBM Data Science Professional Certificate\n\n\n\nWhat is Data Science (PDF)\nTools for Data Science (PDF)\nData Science Methodology (PDF)\nData Analysis with Python (PDF)\nDatabases and SQL with Python (PDF)\nMachine Learning with Python (PDF)\nGenerative AI (PDF)\n\n\n\n\nGenerative AI Engineering with LLMs Specialization\n\n\n\n1. Architecture and Data (PDF)\n2. Gen AI Foundational Models for NLP & Language (PDF)\n3. Generative AI Language Modeling (PDF)\n4. Generative AI Engineering and Fine-Tuning Transformers (PDF)\n5. Generative AI Advanced Fine-Tuning for LLMs (PDF)\n6. Fundamentals of AI Agents Using RAG and LangChain (PDF)"
+  },
+  {
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "Shraddhesh’s Resume",
+    "section": "",
+    "text": "Download PDF file."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Shraddhesh Bhalerao",
     "section": "",
-    "text": "Data Science Intern | GBK Collective\n\n\n\n\n\n\nB.Tech Computer Science & Engineering |Symbiosis Institute of Technology, Pune - June 2021-June 2025\nJunior College | Atomic Energy Central School No.1, Tarapur (April 2019 - June 2021)"
+    "text": "I’m a Data Science enthusiast with a strong foundation in Machine learning, AI, and analytics. My work includes AI assistants, segmentation frameworks, and C++-accelerated simulation tools that drive real-world impact.\n\n\n\nBuilt a GPT-4o-RAG based AI Segmentation Assistant to automate cluster analysis.\nApplied PCA and KMeans to segment customers and surface insights for targeted marketing.\nRewrote slow R code in C++ with Rcpp, achieving 5× speedups in TURF simulations.\n\n\n\n\n\n\nData Science Intern | GBK Collective, USA (Feb 2025 - August 2025)\n\n\n\n\n\n\nB.Tech, Computer Science & Engineering Symbiosis Institute of Technology, Pune – June 2021–June 2025\nJunior College Atomic Energy Central School No.1, Tarapur – April 2019–June 2021"
   },
   {
-    "objectID": "index.html#current",
-    "href": "index.html#current",
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
     "title": "Shraddhesh Bhalerao",
     "section": "",
-    "text": "Data Science Intern | GBK Collective"
+    "text": "Data Science Intern | GBK Collective, USA (Feb 2025 - August 2025)"
   },
   {
     "objectID": "index.html#education",
     "href": "index.html#education",
     "title": "Shraddhesh Bhalerao",
     "section": "",
-    "text": "B.Tech Computer Science & Engineering |Symbiosis Institute of Technology, Pune - June 2021-June 2025\nJunior College | Atomic Energy Central School No.1, Tarapur (April 2019 - June 2021)"
+    "text": "B.Tech, Computer Science & Engineering Symbiosis Institute of Technology, Pune – June 2021–June 2025\nJunior College Atomic Energy Central School No.1, Tarapur – April 2019–June 2021"
   },
   {
-    "objectID": "certifications/certificates.html#generative-ai-engineering-with-llms-specialization",
-    "href": "certifications/certificates.html#generative-ai-engineering-with-llms-specialization",
-    "title": "Certifications",
-    "section": "Generative AI Engineering with LLMs Specialization",
-    "text": "Generative AI Engineering with LLMs Specialization"
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Customer Segmentation with PCA & KMeans\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFast TURF with RCPP\n\n\nOptimized a TURF model by rewriting it in C++ using Rcpp, achieving major speed-ups compared to base R.\n\n\n\n\n\n\n\n\n\n\n\n\nPremiere League AI Assistant \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSleep Disorder Prediction \n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/01_segmentation/index.html",
     "href": "projects/01_segmentation/index.html",
     "title": "Customer Segmentation with PCA & KMeans",
     "section": "",
-    "text": "Performed customer segmentation by applying PCA for dimensionality reduction followed by KMeans clustering. Explored cluster counts from 2 to 6 and evaluated the results using both the Elbow Method and silhouette scores to ensure well-separated groupings.The analysis uncovered distinct clusters characterized by differences in shopping habits, demographics, and financial behavior, providing actionable insights for targeted marketing strategies. ## My Contributions\n\nPerformed data cleaning and exploratory analysis.\nExecuted PCA for dimensionality reduction.\nBuilt KMeans clustering models.\nVisualized clustering outcomes and interpreted customer segments."
+    "text": "Performed customer segmentation by applying PCA for dimensionality reduction followed by KMeans clustering. Explored cluster counts from 2 to 6 and evaluated the results using both the Elbow Method and silhouette scores to ensure well-separated groupings. The analysis uncovered distinct clusters characterized by differences in shopping habits, demographics, and financial behavior, providing actionable insights for targeted marketing strategies."
   },
   {
     "objectID": "projects/01_segmentation/index.html#project-overview",
     "href": "projects/01_segmentation/index.html#project-overview",
     "title": "Customer Segmentation with PCA & KMeans",
     "section": "",
-    "text": "Performed customer segmentation by applying PCA for dimensionality reduction followed by KMeans clustering. Explored cluster counts from 2 to 6 and evaluated the results using both the Elbow Method and silhouette scores to ensure well-separated groupings.The analysis uncovered distinct clusters characterized by differences in shopping habits, demographics, and financial behavior, providing actionable insights for targeted marketing strategies. ## My Contributions\n\nPerformed data cleaning and exploratory analysis.\nExecuted PCA for dimensionality reduction.\nBuilt KMeans clustering models.\nVisualized clustering outcomes and interpreted customer segments."
+    "text": "Performed customer segmentation by applying PCA for dimensionality reduction followed by KMeans clustering. Explored cluster counts from 2 to 6 and evaluated the results using both the Elbow Method and silhouette scores to ensure well-separated groupings. The analysis uncovered distinct clusters characterized by differences in shopping habits, demographics, and financial behavior, providing actionable insights for targeted marketing strategies."
+  },
+  {
+    "objectID": "projects/01_segmentation/index.html#my-contributions",
+    "href": "projects/01_segmentation/index.html#my-contributions",
+    "title": "Customer Segmentation with PCA & KMeans",
+    "section": "My Contributions",
+    "text": "My Contributions\n\nPerformed data cleaning and exploratory analysis.\nExecuted PCA for dimensionality reduction.\nBuilt KMeans clustering models.\nVisualized clustering outcomes and interpreted customer segments."
   },
   {
     "objectID": "projects/01_segmentation/index.html#technologies-used",
@@ -88,20 +130,83 @@
     "href": "projects/01_segmentation/index.html#code",
     "title": "Customer Segmentation with PCA & KMeans",
     "section": "Code",
-    "text": "Code"
+    "text": "Code\n\nimport pandas as pd\nimport matplotlib.pyplot as plt\nfrom sklearn.preprocessing import StandardScaler, LabelEncoder\nfrom sklearn.cluster import KMeans\nimport numpy as np\nfrom sklearn.decomposition import PCA\nfrom sklearn.metrics import silhouette_score\n\n\nfile_path = \"Segmented_Data_PCA_KMeans.xlsx\"\ndf = pd.read_excel(file_path)\n\n\nsegmentation_vars = [\"Age\", \"Gender\", \"Shopping_on_Amazon\", \"annual_income_US\", \"Parent\", \"Credit\"]\ndf_segment = df[segmentation_vars]\n\n\nlabel_encoders = {}\ncategorical_vars = [\"Gender\", \"Shopping_on_Amazon\", \"Parent\", \"Credit\"]\n\nfor col in categorical_vars:\n    le = LabelEncoder()\n    df_segment[col] = le.fit_transform(df_segment[col].astype(str))\n    label_encoders[col] = le\n\n\ndf_segment[\"annual_income_US\"].fillna(df_segment[\"annual_income_US\"].median(), inplace=True)\n\n\ndf_segment[\"annual_income_US\"].fillna(df_segment[\"annual_income_US\"].median(), inplace=True)\n\n\nprint(df_segment.isna().sum())\n\npca = PCA(n_components=2) \ndf_pca = pca.fit_transform(df_segment) \ndf_pca = pd.DataFrame(df_pca, columns=[\"PC1\", \"PC2\"]) \nprint(df_pca)\n\n\nwcss = []\nsilhouette_scores = []\n\nfor k in range(2, 7): \n    kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)\n    labels = kmeans.fit_predict(df_pca)\n    wcss.append(kmeans.inertia_)\n    silhouette_scores.append(silhouette_score(df_pca, labels))\n    \nplt.figure(figsize=(8, 5))\nplt.plot(range(2, 7), wcss, marker=\"o\")\nplt.xlabel(\"Number of Clusters (K)\")\nplt.ylabel(\"WCSS\")\nplt.title(\"Elbow Method for Optimal K\")\nplt.show()\n\nfor i, k in enumerate(range(2, 7)):\n    print(f\"K={k}, Silhouette Score={silhouette_scores[i]:.4f}\")\n\n\noptimal_k = 3 \nkmeans = KMeans(n_clusters=optimal_k, random_state=42, n_init=10)\ndf[\"Segment\"] = kmeans.fit_predict(df_pca)\ndf.to_excel(\"Segmented_Data_PCA_KMeans.xlsx\", index=False)\n\n\nplt.figure(figsize=(8, 6))\nsns.scatterplot(x=df_pca[\"PC1\"], y=df_pca[\"PC2\"], hue=df[\"Segment\"], palette=\"viridis\")\nplt.title(\" K=3\")\nplt.xlabel(\"Principal Component 1\")\nplt.ylabel(\"Principal Component 2\")\nplt.legend(title=\"Cluster\")\nplt.show()"
+  },
+  {
+    "objectID": "projects/01_segmentation/index.html#output",
+    "href": "projects/01_segmentation/index.html#output",
+    "title": "Customer Segmentation with PCA & KMeans",
+    "section": "Output",
+    "text": "Output\n\nprint(df.groupby(\"Segment\").mean())\n\n\nsegment_summary = df.groupby(\"Segment\").mean()\n\nfrom IPython.display import display\ndisplay(segment_summary)\n\n\nsegment_counts = df[\"Segment\"].value_counts()\ntotal_count = len(df)\n\nsegment_percentage = (segment_counts / total_count) * 100\nsegment_percentage_df = segment_percentage.reset_index()\nsegment_percentage_df.columns = [\"Segment\", \"Percentage\"]\ndisplay(segment_percentage_df)\n\n\npercent_by_gender = pd.crosstab(\n    df[\"Gender\"], \n    df[\"Segment\"], \n    normalize=\"index\"\n) * 100\n\nprint(\"Row-Wise \")\ndisplay(percent_by_gender)\npercent_by_segment = pd.crosstab(\n    df[\"Gender\"], \n    df[\"Segment\"], \n    normalize=\"columns\"\n) * 100\n\nprint(\"Column-Wise \")\ndisplay(percent_by_segment)\ncounts_with_totals = pd.crosstab(\n    df[\"Gender\"], \n    df[\"Segment\"], \n    margins=True\n)\ndisplay(counts_with_totals)"
   },
   {
     "objectID": "projects/03_Sleep_disorder_prediction/index.html",
     "href": "projects/03_Sleep_disorder_prediction/index.html",
-    "title": "Sleep Disorder Prediction",
+    "title": "Sleep Disorder Prediction ",
     "section": "",
-    "text": "The objective of this data science project is to analyze lifestyle and medical variables—such as age, BMI, physical activity, sleep duration, and blood pressure—to predict the presence and type of sleep disorder (e.g., Insomnia, Sleep Apnea). Early identification of individuals at risk can enable targeted interventions to improve sleep quality and health outcomes."
+    "text": "The objective of this data science project is to analyze lifestyle and medical variables–such as age, BMI, physical activity, sleep duration, and blood pressure–to predict the presence and type of sleep disorder (e.g., Insomnia, Sleep Apnea). Early identification of individuals at risk can enable targeted interventions to improve sleep quality and health outcomes.\nIt is a machine learning project implemented in Python (Jupyter Notebook) using scikit-learn to train models that predict sleep disorders based on lifestyle and health metrics.\n\n\nThe workflow is clear and modular:\n\nFetch Data – Uses a curated dataset of health and lifestyle indicators.\nPreprocess – Cleans and organizes the raw data (handling missing values, encoding categories, normalization).\nBuild Features – Extracts meaningful predictors such as age, BMI, sleep duration, stress levels, and heart rate.\nTrain Models – Applies algorithms like Logistic Regression, Random Forest, and KNN to classify sleep disorder presence.\nEvaluate – Compares performance using metrics such as accuracy, precision, recall, and F1-score to determine the best model.\n\n\n\n\n\nLanguage: Python\nLibraries: Pandas, NumPy, scikit-learn, Matplotlib, Seaborn\nData Engineering: Cleaning, preprocessing, feature engineering\nMachine Learning: Supervised classification (Logistic Regression, Random Forest, KNN, etc.)\nVisualization: Charts and graphs to highlight trends and correlations\n\n\n\n\n\nWorks on real-world health data, not synthetic samples.\nCovers the end-to-end pipeline: dataset → preprocessing → feature extraction → ML model → evaluation.\nIdentifies key lifestyle factors (like BMI, stress, and sleep duration) that strongly influence sleep disorders.\nOrganized modularly, making it easy to extend with new models or datasets.\n\n\n\n\n\nCorrelation Example: Higher BMI and lower sleep duration are strongly correlated with insomnia.\nModel Results: Random Forest achieved the highest accuracy (89%).\nVisuals: Feature importance graphs and correlation heatmaps highlight the strongest predictors."
   },
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
+    "objectID": "projects/03_Sleep_disorder_prediction/index.html#what-the-project-does",
+    "href": "projects/03_Sleep_disorder_prediction/index.html#what-the-project-does",
+    "title": "Sleep Disorder Prediction ",
     "section": "",
-    "text": "AI Integration\n\n\n\n\n\n\n\n\n\n\n\n\n\nCustomer Segmentation with PCA & KMeans\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFast TURF with RCPP\n\n\nOptimized a TURF model by rewriting it in C++ using Rcpp, achieving major speed-ups compared to base R.\n\n\n\n\n\n\n\n\n\n\nSleep Disorder Prediction\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "The workflow is clear and modular:\n\nFetch Data – Uses a curated dataset of health and lifestyle indicators.\nPreprocess – Cleans and organizes the raw data (handling missing values, encoding categories, normalization).\nBuild Features – Extracts meaningful predictors such as age, BMI, sleep duration, stress levels, and heart rate.\nTrain Models – Applies algorithms like Logistic Regression, Random Forest, and KNN to classify sleep disorder presence.\nEvaluate – Compares performance using metrics such as accuracy, precision, recall, and F1-score to determine the best model."
+  },
+  {
+    "objectID": "projects/03_Sleep_disorder_prediction/index.html#tech-stack-skills-used",
+    "href": "projects/03_Sleep_disorder_prediction/index.html#tech-stack-skills-used",
+    "title": "Sleep Disorder Prediction ",
+    "section": "",
+    "text": "Language: Python\nLibraries: Pandas, NumPy, scikit-learn, Matplotlib, Seaborn\nData Engineering: Cleaning, preprocessing, feature engineering\nMachine Learning: Supervised classification (Logistic Regression, Random Forest, KNN, etc.)\nVisualization: Charts and graphs to highlight trends and correlations"
+  },
+  {
+    "objectID": "projects/03_Sleep_disorder_prediction/index.html#what-makes-it-interesting",
+    "href": "projects/03_Sleep_disorder_prediction/index.html#what-makes-it-interesting",
+    "title": "Sleep Disorder Prediction ",
+    "section": "",
+    "text": "Works on real-world health data, not synthetic samples.\nCovers the end-to-end pipeline: dataset → preprocessing → feature extraction → ML model → evaluation.\nIdentifies key lifestyle factors (like BMI, stress, and sleep duration) that strongly influence sleep disorders.\nOrganized modularly, making it easy to extend with new models or datasets."
+  },
+  {
+    "objectID": "projects/03_Sleep_disorder_prediction/index.html#example-insights",
+    "href": "projects/03_Sleep_disorder_prediction/index.html#example-insights",
+    "title": "Sleep Disorder Prediction ",
+    "section": "",
+    "text": "Correlation Example: Higher BMI and lower sleep duration are strongly correlated with insomnia.\nModel Results: Random Forest achieved the highest accuracy (89%).\nVisuals: Feature importance graphs and correlation heatmaps highlight the strongest predictors."
+  },
+  {
+    "objectID": "certifications/certificates.html#ibm-data-science-professional-certificate",
+    "href": "certifications/certificates.html#ibm-data-science-professional-certificate",
+    "title": "My Certifications",
+    "section": "",
+    "text": "What is Data Science\nTools for Data Science\nData Science Methodology\nData Analysis with Python\nDatabases and SQL with Python\nMachine Learning with Python\nGenerative AI"
+  },
+  {
+    "objectID": "certifications/certificates.html#generative-ai-engineering-with-llms-specialization",
+    "href": "certifications/certificates.html#generative-ai-engineering-with-llms-specialization",
+    "title": "My Certifications",
+    "section": "",
+    "text": "1. Architecture and Data\n2. Gen AI Foundational Models for NLP & Language\n3. Generative AI Language Modeling\n4. Generative AI Engineering and Fine-Tuning Transformers\n5. Generative AI Advanced Fine-Tuning for LLMs\n6. Fundamentals of AI Agents Using RAG and LangChain"
+  },
+  {
+    "objectID": "certifications/certificates.html#uibm-data-science-professional-certificateu",
+    "href": "certifications/certificates.html#uibm-data-science-professional-certificateu",
+    "title": "🎓My Certifications",
+    "section": "",
+    "text": "What is Data Science\nTools for Data Science\nData Science Methodology\nData Analysis with Python\nDatabases and SQL with Python\nMachine Learning with Python\nGenerative AI"
+  },
+  {
+    "objectID": "certifications/certificates.html#ugenerative-ai-engineering-with-llms-specializationu",
+    "href": "certifications/certificates.html#ugenerative-ai-engineering-with-llms-specializationu",
+    "title": "🎓My Certifications",
+    "section": "2. <u>Generative AI Engineering with LLMs Specialization</u>",
+    "text": "2. &lt;u&gt;Generative AI Engineering with LLMs Specialization&lt;/u&gt;\n\n1. Architecture and Data\n2. Gen AI Foundational Models for NLP & Language\n3. Generative AI Language Modeling\n4. Generative AI Engineering and Fine-Tuning Transformers\n5. Generative AI Advanced Fine-Tuning for LLMs\n6. Fundamentals of AI Agents Using RAG and LangChain"
+  },
+  {
+    "objectID": "certifications/certificates.html#h21.-uibm-data-science-professional-certificateuh2",
+    "href": "certifications/certificates.html#h21.-uibm-data-science-professional-certificateuh2",
+    "title": "🎓My Certifications",
+    "section": "",
+    "text": "What is Data Science\nTools for Data Science\nData Science Methodology\nData Analysis with Python\nDatabases and SQL with Python\nMachine Learning with Python\nGenerative AI\n\n\n##\n\n\n1. Architecture and Data\n2. Gen AI Foundational Models for NLP & Language\n3. Generative AI Language Modeling\n4. Generative AI Engineering and Fine-Tuning Transformers\n5. Generative AI Advanced Fine-Tuning for LLMs\n6. Fundamentals of AI Agents Using RAG and LangChain"
   }
 ]
