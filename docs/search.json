@@ -58,9 +58,9 @@
   {
     "objectID": "certifications/certificates.html",
     "href": "certifications/certificates.html",
-    "title": "My Certifications",
+    "title": "Shraddhesh Bhalerao",
     "section": "",
-    "text": "🎓 My Certifications\n\n\nIBM Data Science Professional Certificate\n\n\n\nWhat is Data Science (PDF)\nTools for Data Science (PDF)\nData Science Methodology (PDF)\nData Analysis with Python (PDF)\nDatabases and SQL with Python (PDF)\nMachine Learning with Python (PDF)\nGenerative AI (PDF)\n\n\n\n\nGenerative AI Engineering with LLMs Specialization\n\n\n\n1. Architecture and Data (PDF)\n2. Gen AI Foundational Models for NLP & Language (PDF)\n3. Generative AI Language Modeling (PDF)\n4. Generative AI Engineering and Fine-Tuning Transformers (PDF)\n5. Generative AI Advanced Fine-Tuning for LLMs (PDF)\n6. Fundamentals of AI Agents Using RAG and LangChain (PDF)"
+    "text": "IBM Data Science Professional Certificate\n\n\n\nWhat is Data Science\nTools for Data Science\nData Science Methodology\nData Analysis with Python\nDatabases and SQL with Python\nMachine Learning with Python\nGenerative AI\n\n\n\nGenerative AI Engineering with LLMs Specialization\n\n\n\n1. Architecture and Data\n2. Gen AI Foundational Models for NLP & Language\n3. Generative AI Language Modeling\n4. Generative AI Engineering and Fine-Tuning Transformers\n5. Generative AI Advanced Fine-Tuning for LLMs\n6. Fundamentals of AI Agents Using RAG and LangChain"
   },
   {
     "objectID": "resume.html",
@@ -173,40 +173,5 @@
     "title": "Sleep Disorder Prediction ",
     "section": "",
     "text": "Correlation Example: Higher BMI and lower sleep duration are strongly correlated with insomnia.\nModel Results: Random Forest achieved the highest accuracy (89%).\nVisuals: Feature importance graphs and correlation heatmaps highlight the strongest predictors."
-  },
-  {
-    "objectID": "certifications/certificates.html#ibm-data-science-professional-certificate",
-    "href": "certifications/certificates.html#ibm-data-science-professional-certificate",
-    "title": "My Certifications",
-    "section": "",
-    "text": "What is Data Science\nTools for Data Science\nData Science Methodology\nData Analysis with Python\nDatabases and SQL with Python\nMachine Learning with Python\nGenerative AI"
-  },
-  {
-    "objectID": "certifications/certificates.html#generative-ai-engineering-with-llms-specialization",
-    "href": "certifications/certificates.html#generative-ai-engineering-with-llms-specialization",
-    "title": "My Certifications",
-    "section": "",
-    "text": "1. Architecture and Data\n2. Gen AI Foundational Models for NLP & Language\n3. Generative AI Language Modeling\n4. Generative AI Engineering and Fine-Tuning Transformers\n5. Generative AI Advanced Fine-Tuning for LLMs\n6. Fundamentals of AI Agents Using RAG and LangChain"
-  },
-  {
-    "objectID": "certifications/certificates.html#uibm-data-science-professional-certificateu",
-    "href": "certifications/certificates.html#uibm-data-science-professional-certificateu",
-    "title": "🎓My Certifications",
-    "section": "",
-    "text": "What is Data Science\nTools for Data Science\nData Science Methodology\nData Analysis with Python\nDatabases and SQL with Python\nMachine Learning with Python\nGenerative AI"
-  },
-  {
-    "objectID": "certifications/certificates.html#ugenerative-ai-engineering-with-llms-specializationu",
-    "href": "certifications/certificates.html#ugenerative-ai-engineering-with-llms-specializationu",
-    "title": "🎓My Certifications",
-    "section": "2. <u>Generative AI Engineering with LLMs Specialization</u>",
-    "text": "2. &lt;u&gt;Generative AI Engineering with LLMs Specialization&lt;/u&gt;\n\n1. Architecture and Data\n2. Gen AI Foundational Models for NLP & Language\n3. Generative AI Language Modeling\n4. Generative AI Engineering and Fine-Tuning Transformers\n5. Generative AI Advanced Fine-Tuning for LLMs\n6. Fundamentals of AI Agents Using RAG and LangChain"
-  },
-  {
-    "objectID": "certifications/certificates.html#h21.-uibm-data-science-professional-certificateuh2",
-    "href": "certifications/certificates.html#h21.-uibm-data-science-professional-certificateuh2",
-    "title": "🎓My Certifications",
-    "section": "",
-    "text": "What is Data Science\nTools for Data Science\nData Science Methodology\nData Analysis with Python\nDatabases and SQL with Python\nMachine Learning with Python\nGenerative AI\n\n\n##\n\n\n1. Architecture and Data\n2. Gen AI Foundational Models for NLP & Language\n3. Generative AI Language Modeling\n4. Generative AI Engineering and Fine-Tuning Transformers\n5. Generative AI Advanced Fine-Tuning for LLMs\n6. Fundamentals of AI Agents Using RAG and LangChain"
   }
 ]
